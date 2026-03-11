@@ -8,7 +8,7 @@ function AddInventory(){
     const [productName, setProductName] = useState("");
     const [productId, setProductId] = useState("");
     const [products, setProducts] = useState([]);
-    const [message, setMessage] = useState("");
+    // const [message, setMessage] = useState(""); // 未使用のため削除
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isShopDefined, setIsShopDefined] = useState(false);
     useEffect(() => {
