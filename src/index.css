@@ -1,13 +1,91 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+:root{
+  --bg: #f7fafc;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #0d6efd;
+  --primary-contrast: #ffffff;
+  --accent: #94a3b8;
+  --radius: 8px;
+  --gap: 1rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Normalize essentials */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.45;
 }
+
+/* Layout helpers */
+.container{
+  max-width:1000px;
+  margin:2rem auto;
+  padding:1.25rem;
+  background:var(--surface);
+  border-radius:calc(var(--radius) - 2px);
+  box-shadow:0 1px 2px rgba(16,24,40,0.04), 0 4px 12px rgba(16,24,40,0.06);
+}
+
+h1{font-size:1.5rem;margin-bottom:0.75rem}
+
+/* Buttons (modern, accessible) */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.5rem;
+  padding:0.6rem 1.25rem;
+  border-radius:var(--radius);
+  font-weight:600;
+  border:0;
+  cursor:pointer;
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn:focus{outline:2px solid transparent;box-shadow:0 0 0 4px rgba(13,110,253,0.12)}
+
+.btn-outline{
+  background:transparent;
+  color:var(--primary);
+  border:2px solid var(--primary);
+}
+.btn-outline:hover{background:var(--primary);color:var(--primary-contrast)}
+
+.btn-inline{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.btn-inline:hover{background:#f1f5f9;color:var(--text)}
+
+.btn[disabled],.btn:disabled{opacity:0.6;cursor:not-allowed}
+
+/* Form elements */
+label{display:block;margin-bottom:0.25rem;color:var(--muted);font-size:0.95rem}
+input[type="text"], input[type="number"], select, textarea{
+  width:100%;
+  padding:0.6rem 0.75rem;
+  border:1px solid rgba(15,23,42,0.06);
+  border-radius:6px;
+  background:transparent;
+  margin-bottom:0.75rem;
+}
+
+/* Button row responsive */
+.button-row{display:flex;flex-wrap:wrap;gap:calc(var(--gap) / 2);justify-content:center;margin-top:1rem}
+
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0b1220;--surface:#071126;--text:#e6eef8;--muted:#9aa6b2}
+}
+
+/* Small utilities */
+.muted{color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
