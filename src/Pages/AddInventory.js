@@ -134,6 +134,10 @@ function AddInventory(){
                     </div>
                 )}
 
+            {/* メッセージ表示 */}
+            {message && (
+                <div style={{ color: 'red', marginTop: '1rem' }}>{message}</div>
+            )}
             <div style={{marginTop:'1rem'}}>
                 <button className="btn btn-inline" onClick={() => window.history.back()}>戻る</button>
             </div>
